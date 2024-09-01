@@ -1,28 +1,34 @@
 import 'package:calculator/constant/colors.dart';
+import 'package:calculator/provider/calculator_provider.dart';
 import 'package:calculator/screens/widgets_data.dart';
+import 'package:calculator/widgets/calculate_button.dart';
 import 'package:calculator/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget
-{
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
-    const padding = EdgeInsets.symmetric(horizontal: 25 , vertical: 30);
-    const decoration = BoxDecoration(color: AppColors.primaryColor , borderRadius: BorderRadius.vertical(top: Radius.circular(30)));
+    const padding = EdgeInsets.symmetric(horizontal: 25, vertical: 30);
+    const decoration = BoxDecoration(
+        color: AppColors.primaryColor,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)));
 
-    return Scaffold(
+    return Consumer<CalculatorProvider>(builder: (context, provider, _) {
+      return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text('Calculator App'),
-          backgroundColor: Colors.black
-          ),
+          title: const Text("Calculator App"),
+          backgroundColor: Colors.black,
+        ),
         body: Column(
           children: [
-            const CustomTextField(),
+            CustomTextField(
+              controller: provider.controller,
+            ),
             const Spacer(),
             Container(
               height: screenHeight * 0.6,
@@ -34,29 +40,51 @@ class HomeScreen extends StatelessWidget
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(4 , (index) => buttonList[index]),
+                    children: List.generate(4, (index) => buttonList[index]),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(4 , (index) => buttonList[index + 4]),
+                    children:
+                        List.generate(4, (index) => buttonList[index + 4]),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(4 , (index) => buttonList[index + 8]),
+                    children:
+                        List.generate(4, (index) => buttonList[index + 8]),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(4 , (index) => buttonList[index + 12]),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(4 , (index) => buttonList[index + 16]),
-                  ),
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: List.generate(
+                                  3, (index) => buttonList[index + 12]),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: List.generate(
+                                  3, (index) => buttonList[index + 15]),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const CalculateButton()
+                    ],
+                  )
                 ],
               ),
             )
           ],
-          ),
+        ),
       );
+    });
   }
 }

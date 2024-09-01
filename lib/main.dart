@@ -1,5 +1,7 @@
+import 'package:calculator/provider/calculator_provider.dart';
 import 'package:calculator/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main()
 {
@@ -13,10 +15,13 @@ class CalculatorApp extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    return MaterialApp(
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => CalculatorProvider(),
+      child: MaterialApp(
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        home: const HomeScreen(),
+      ),
     );
   }
 }

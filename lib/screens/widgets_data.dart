@@ -18,9 +18,7 @@ List <Widget> buttonList = const [
   Button1(label: "7"),
   Button1(label: "8"),
   Button1(label: "9"),
-  Button1(label: "AC" , textColor: AppColors.secondaryColor),
   Button1(label: "%"),
   Button1(label: "0"),
   Button1(label: "."),
-  Button1(label: "AC" , textColor: AppColors.secondaryColor),
 ];
