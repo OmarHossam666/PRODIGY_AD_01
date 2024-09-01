@@ -6,18 +6,21 @@ import 'package:calculator/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget
+{
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     final screenHeight = MediaQuery.sizeOf(context).height;
     const padding = EdgeInsets.symmetric(horizontal: 25, vertical: 30);
     const decoration = BoxDecoration(
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)));
 
-    return Consumer<CalculatorProvider>(builder: (context, provider, _) {
+    return Consumer<CalculatorProvider>(builder: (context, provider, widget)
+    {
       return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -53,29 +56,39 @@ class HomeScreen extends StatelessWidget {
                         List.generate(4, (index) => buttonList[index + 8]),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: List.generate(
-                                  3, (index) => buttonList[index + 12]),
+                                3,
+                                (index) => Expanded(
+                                  child: Center(
+                                    child: buttonList[index + 12],
+                                  ),
+                                ),
+                              ),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            const SizedBox(height: 10),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: List.generate(
-                                  3, (index) => buttonList[index + 15]),
-                            )
+                                3,
+                                (index) => Expanded(
+                                  child: Center(
+                                    child: buttonList[index + 15],
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
+                      const SizedBox(width: 5),
                       const CalculateButton()
                     ],
                   )

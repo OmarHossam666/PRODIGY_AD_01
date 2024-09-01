@@ -36,6 +36,9 @@ class CalculatorProvider extends ChangeNotifier
     void compute()
     {
         String text = controller.text;
-        controller.text = text.interpret().toString();
+        if (text.isNotEmpty)
+        {
+            controller.text = text.interpret().toString();
+        }
     }
 }
