@@ -16,8 +16,8 @@ class Button1 extends StatelessWidget
     return InkWell(
       onTap: () => Provider.of<CalculatorProvider>(context, listen: false).setValue(label),
       child: Material(
-        elevation: 3,
-        color: AppColors.primaryColor,
+        elevation: 10,
+        color: const Color.fromARGB(224, 255, 0, 68),
         borderRadius: BorderRadius.circular(50),
         child: CircleAvatar(
           backgroundColor: AppColors.secondary2Color,
@@ -26,7 +26,7 @@ class Button1 extends StatelessWidget
             label,
             style: TextStyle(
               fontSize: 32,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
               color: textColor,
               ),
           ),

@@ -1,4 +1,3 @@
-import 'package:calculator/constant/colors.dart';
 import 'package:calculator/provider/calculator_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,13 +15,13 @@ class CalculateButton extends StatelessWidget
         height: 160,
         width: 70,
         decoration: BoxDecoration(
-          color: AppColors.secondaryColor,
+          color: const Color.fromARGB(224, 255, 0, 68),
           borderRadius: BorderRadius.circular(40),
         ),
         child: const Center(
           child: Text(
             "=",
-            style: TextStyle(fontSize: 32 , fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 32 , fontWeight: FontWeight.w300),
           ),
         ),
       ),
