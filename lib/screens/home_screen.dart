@@ -1,4 +1,5 @@
 import 'package:calculator/constant/colors.dart';
+import 'package:calculator/screens/widgets_data.dart';
 import 'package:calculator/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,31 @@ class HomeScreen extends StatelessWidget
               width: double.infinity,
               padding: padding,
               decoration: decoration,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4 , (index) => buttonList[index]),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4 , (index) => buttonList[index + 4]),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4 , (index) => buttonList[index + 8]),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4 , (index) => buttonList[index + 12]),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4 , (index) => buttonList[index + 16]),
+                  ),
+                ],
+              ),
             )
           ],
           ),
