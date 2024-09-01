@@ -13,7 +13,7 @@ To run the calculator app locally, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/calculator-app.git
+    git clone https://github.com/OmarHossam666/PRODIGY_AD_01.git
     cd calculator-app
     ```
 
